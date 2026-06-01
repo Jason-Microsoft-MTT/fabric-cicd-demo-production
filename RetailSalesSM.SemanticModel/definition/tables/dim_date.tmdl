@@ -1,0 +1,79 @@
+table dim_date
+	lineageTag: abe2ae8e-8bf3-4f6e-b1be-108a1bcf004c
+	sourceLineageTag: [dbo].[dim_date]
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f42c63b1-3f33-4260-b920-9d90b12ac19c
+		sourceLineageTag: DateKey
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 53b2d33e-15bb-4390-915a-db289724c617
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: string
+		lineageTag: 3d3e5ee8-9586-461f-abec-8abc2d3097f6
+		sourceLineageTag: Fiscal Year
+		summarizeBy: none
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Quarter'
+		dataType: string
+		lineageTag: 186d6f24-d943-4814-b7be-3081e0395748
+		sourceLineageTag: Fiscal Quarter
+		summarizeBy: none
+		sourceColumn: Fiscal Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 88353d5f-5052-4078-aa9f-fb38f4422b25
+		sourceLineageTag: Month
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Full Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: efd7df34-8706-43d9-8cd7-5f642b369a43
+		sourceLineageTag: Full Date
+		summarizeBy: none
+		sourceColumn: Full Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c8caef08-9f32-4532-8a67-5769d18c8df9
+		sourceLineageTag: MonthKey
+		summarizeBy: none
+		sourceColumn: MonthKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: dbo
+			expressionSource: 'DirectLake - RetailSalesLH'
+

@@ -1,0 +1,48 @@
+table dim_sales_territory
+	lineageTag: 9a2b16de-b556-4189-9420-7e6f01e2a082
+	sourceLineageTag: [dbo].[dim_sales_territory]
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f8daf626-d81f-4337-b055-cacfd0becd40
+		sourceLineageTag: SalesTerritoryKey
+		summarizeBy: none
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 22969bcc-108f-4f30-be22-574de849fae9
+		sourceLineageTag: Region
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 8927ca54-c790-427c-b030-2b8e2a621b90
+		sourceLineageTag: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Group
+		dataType: string
+		lineageTag: f2e0c361-3f3d-406f-884d-4c4eec5de3a2
+		sourceLineageTag: Group
+		summarizeBy: none
+		sourceColumn: Group
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_sales_territory = entity
+		mode: directLake
+		source
+			entityName: dim_sales_territory
+			schemaName: dbo
+			expressionSource: 'DirectLake - RetailSalesLH'
+

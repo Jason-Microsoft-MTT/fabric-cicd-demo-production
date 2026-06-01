@@ -1,0 +1,165 @@
+table fact_sales
+	lineageTag: 72c58f77-0a91-42e2-9796-ac40845f00d0
+	sourceLineageTag: [dbo].[fact_sales]
+
+	measure 'Avg Order Value' = DIVIDE([Total Sales], [Order Count])
+		lineageTag: 9d2c6f16-a721-4c99-81dc-10ab54fe48ff
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Order Count' = DISTINCTCOUNT(fact_sales[SalesOrderLineKey])
+		formatString: 0
+		lineageTag: 9dae89dc-c4bc-4aa5-86b9-f99d77fc5f78
+
+		changedProperty = Name
+
+	measure 'Total Sales' = SUM(fact_sales[Sales Amount])
+		lineageTag: b991d90d-c1a7-492d-be5e-84a381b2276b
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalesOrderLineKey
+		dataType: int64
+		formatString: 0
+		lineageTag: e47e0aa3-bea1-4972-bed4-eb129c815fb2
+		sourceLineageTag: SalesOrderLineKey
+		summarizeBy: count
+		sourceColumn: SalesOrderLineKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e798f08-084e-4062-9694-110e5858420d
+		sourceLineageTag: CustomerKey
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a9bf4817-aaf5-4e17-a3af-9b8a4d6d2549
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6239e0d9-dfe6-4280-88fb-b6b7d5282ea4
+		sourceLineageTag: OrderDateKey
+		summarizeBy: none
+		sourceColumn: OrderDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DueDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ad12fb3e-5a7f-42a9-8ca8-f2f8ab955dfb
+		sourceLineageTag: DueDateKey
+		summarizeBy: count
+		sourceColumn: DueDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 031134f2-333b-4538-9cd2-771f3933e9f4
+		sourceLineageTag: ShipDateKey
+		summarizeBy: count
+		sourceColumn: ShipDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: fd32506a-5894-4107-8c64-877aae483d5d
+		sourceLineageTag: SalesTerritoryKey
+		summarizeBy: none
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Quantity'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e9de3da-38aa-4727-92cc-18637bcd6f05
+		sourceLineageTag: Order Quantity
+		summarizeBy: sum
+		sourceColumn: Order Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit Price'
+		dataType: double
+		lineageTag: b9f3eb55-ee0e-472c-8e01-821fa3c9fd44
+		sourceLineageTag: Unit Price
+		summarizeBy: sum
+		sourceColumn: Unit Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unit Price Discount Pct'
+		dataType: int64
+		formatString: 0
+		lineageTag: beb49ef9-b9a4-40b0-9b93-d2d11f4b10c5
+		sourceLineageTag: Unit Price Discount Pct
+		summarizeBy: sum
+		sourceColumn: Unit Price Discount Pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Standard Cost'
+		dataType: double
+		lineageTag: 0dbf4c83-5a30-4c16-baba-d9c3518a7d05
+		sourceLineageTag: Product Standard Cost
+		summarizeBy: sum
+		sourceColumn: Product Standard Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total Product Cost'
+		dataType: double
+		lineageTag: 1f9a0a67-6887-42d7-9f2d-ff9a6181cfed
+		sourceLineageTag: Total Product Cost
+		summarizeBy: sum
+		sourceColumn: Total Product Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sales Amount'
+		dataType: double
+		lineageTag: d3f890a1-47b3-4eef-aee8-92be870b791a
+		sourceLineageTag: Sales Amount
+		summarizeBy: sum
+		sourceColumn: Sales Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_sales = entity
+		mode: directLake
+		source
+			entityName: fact_sales
+			schemaName: dbo
+			expressionSource: 'DirectLake - RetailSalesLH'
+

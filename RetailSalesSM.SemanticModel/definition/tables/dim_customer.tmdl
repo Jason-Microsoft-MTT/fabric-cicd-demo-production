@@ -1,0 +1,75 @@
+table dim_customer
+	lineageTag: 3dc1cd8b-8620-4df6-9640-73f6a1595663
+	sourceLineageTag: [dbo].[dim_customer]
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f8e757ad-8679-4310-9e32-d608f597653e
+		sourceLineageTag: CustomerKey
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer ID'
+		dataType: string
+		lineageTag: 6327b1b5-7613-4b17-9727-03b2d3fa7f55
+		sourceLineageTag: Customer ID
+		summarizeBy: none
+		sourceColumn: Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer
+		dataType: string
+		lineageTag: 77023a8c-cb7d-455d-9d9e-2e04e29d2385
+		sourceLineageTag: Customer
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 513276ef-15a4-426e-ad78-490cdb0d5fa2
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column State-Province
+		dataType: string
+		lineageTag: 8bd16c75-49f8-4b70-a9f9-079dad1d60fa
+		sourceLineageTag: State-Province
+		summarizeBy: none
+		sourceColumn: State-Province
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country-Region
+		dataType: string
+		lineageTag: 30136fa1-5811-4db7-939a-b90162f65018
+		sourceLineageTag: Country-Region
+		summarizeBy: none
+		sourceColumn: Country-Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Postal Code'
+		dataType: string
+		lineageTag: aabd38f2-5aed-4f7c-846b-8a54cf161aca
+		sourceLineageTag: Postal Code
+		summarizeBy: none
+		sourceColumn: Postal Code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_customer = entity
+		mode: directLake
+		source
+			entityName: dim_customer
+			schemaName: dbo
+			expressionSource: 'DirectLake - RetailSalesLH'
+

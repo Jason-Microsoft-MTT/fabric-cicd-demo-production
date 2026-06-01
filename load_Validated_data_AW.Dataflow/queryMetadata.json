@@ -1,0 +1,54 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Dataflow 1",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "DefaultDestination": {
+      "queryId": "9854d35f-133e-4a0b-b36b-44497d86cae5",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_sales_territory": {
+      "queryId": "0f1bb074-c339-464b-b4c4-6c92c64b57d2",
+      "queryName": "dim_sales_territory",
+      "loadEnabled": false
+    },
+    "fact_sales": {
+      "queryId": "e732359e-b618-42f9-86d3-9190dbfaba02",
+      "queryName": "fact_sales",
+      "loadEnabled": false
+    },
+    "dim_date": {
+      "queryId": "671da213-9425-4152-89b6-18e564cad0bd",
+      "queryName": "dim_date",
+      "loadEnabled": false
+    },
+    "dim_product": {
+      "queryId": "56f4f078-8e64-4be5-864c-2a2ee41429bd",
+      "queryName": "dim_product",
+      "loadEnabled": false
+    },
+    "dim_customer": {
+      "queryId": "6366f4eb-4738-44aa-b3ab-c1cd8ad1b230",
+      "queryName": "dim_customer",
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"37e25969-5009-42e8-81da-61805432d4a9\",\"DatasourceId\":\"9d51c535-ceb8-4146-8952-c1fc0bab7d36\"}"
+    },
+    {
+      "path": "https://mngenvmcap145525-my.sharepoint.com/personal/datadetective_mngenvmcap145525_onmicrosoft_com/Documents/Apps/Microsoft Power Query/Uploaded Files/AdventureWorks Sales 5.xlsx",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"37e25969-5009-42e8-81da-61805432d4a9\",\"DatasourceId\":\"75aa8d1c-7827-4628-a986-a5a3e9710dc3\"}"
+    }
+  ]
+}

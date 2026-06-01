@@ -1,0 +1,97 @@
+table dim_product
+	lineageTag: e42bf4cf-d761-4b92-8af8-1d2ff048f7eb
+	sourceLineageTag: [dbo].[dim_product]
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b6379965-6434-480c-bd43-eb5271d9bfd6
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SKU
+		dataType: string
+		lineageTag: d9f94034-5fcc-46af-96b8-e3812c4b77b3
+		sourceLineageTag: SKU
+		summarizeBy: none
+		sourceColumn: SKU
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product
+		dataType: string
+		lineageTag: 3f891b0f-ada1-430b-b49b-621d98750cfe
+		sourceLineageTag: Product
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Standard Cost'
+		dataType: double
+		lineageTag: 77a8b998-26c7-4bb6-946c-89fd7cd4e5fd
+		sourceLineageTag: Standard Cost
+		summarizeBy: none
+		sourceColumn: Standard Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Color
+		dataType: string
+		lineageTag: f612b4dd-a4a7-4439-9f93-29aaed97fd64
+		sourceLineageTag: Color
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'List Price'
+		dataType: double
+		lineageTag: a6a357e4-6f4c-41d6-b5fe-27eec5d26b32
+		sourceLineageTag: List Price
+		summarizeBy: none
+		sourceColumn: List Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Model
+		dataType: string
+		lineageTag: 12d7e853-13c6-4a3b-9bee-d09e0cf825d7
+		sourceLineageTag: Model
+		summarizeBy: none
+		sourceColumn: Model
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subcategory
+		dataType: string
+		lineageTag: 05b298a0-d889-4c0a-b65d-5d5f0c17f7d3
+		sourceLineageTag: Subcategory
+		summarizeBy: none
+		sourceColumn: Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 5a630321-0b7b-4153-9367-26fbc6763894
+		sourceLineageTag: Category
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product = entity
+		mode: directLake
+		source
+			entityName: dim_product
+			schemaName: dbo
+			expressionSource: 'DirectLake - RetailSalesLH'
+
