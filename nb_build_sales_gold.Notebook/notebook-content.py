@@ -22,7 +22,7 @@
 
 # CELL ********************
 
-# Load source tables from the lakehouse
+# Load source tables from the lakehouse production
 fact_sales = spark.read.table("fact_sales")
 dim_date = spark.read.table("dim_date")
 dim_product = spark.read.table("dim_product")
