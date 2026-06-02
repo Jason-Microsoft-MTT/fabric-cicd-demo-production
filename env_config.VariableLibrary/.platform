@@ -1,12 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Notebook",
-    "displayName": "nb_build_sales_gold",
-    "description": "New notebook"
+    "type": "VariableLibrary",
+    "displayName": "env_config"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "ff7f28d2-7994-a8cb-40db-bd35edcf8c2a"
+    "logicalId": "82dcc38d-885d-a9e3-41b7-9e4839f1e848"
   }
 }
