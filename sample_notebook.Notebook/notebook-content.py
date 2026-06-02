@@ -25,9 +25,21 @@ from notebookutils import variableLibrary
 
 vl = variableLibrary.getLibrary("env_config")
 
+print(vl)
+
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
 print("Environment:", vl.environment_name)
-print("Data Source:", vl.data_source_name)
-print("Load Mode:", vl.load_mode)
+
+
 
 # METADATA ********************
 
